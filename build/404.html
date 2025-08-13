@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>404 | Appmint - Tailwind CSS Business Site Template</title>
+  <link rel="icon" href="favicon.ico"><link href="style.css" rel="stylesheet"></head>
+  <body
+    x-data="{ page: '404', 'loaded': true, 'darkMode': true, 'stickyMenu': false, 'navigationOpen': false, 'scrollTop': false }"
+    x-init="
+         darkMode = JSON.parse(localStorage.getItem('darkMode'));
+         $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)))"
+    :class="{'c af': darkMode === true}"
+  >
+     <!-- ===== Preloader Start ===== -->
+     <div x-show="loaded" x-init="window.addEventListener('DOMContentLoaded', () => {setTimeout(() => loaded = false, 500)})" class="i l n cd lc cf ha">
+  <div class="e"></div>
+</div>
+     <!-- ===== Preloader End ===== -->
+      
+    <!-- ===== Header Start ===== -->
+    <header
+  class="i l n oc fa lg qm"
+  :class="{ 'cf kj ji mg rm li ri' : stickyMenu }"
+  @scroll.window="stickyMenu = (window.scrollY > 0) ? true : false"
+>
+  <div class="a _l xd zd k">
+    <div class="oc dm/4 sb xd zd">
+      <a href="index.html">
+        <img class="fj" src="images/logo-light.png" style="width: 12px;" alt="Logo Light" />
+        <img class="vb ej" src="images/logo-dark.png" style="width: 12px;" alt="Logo Dark" />
+      </a>
+
+      <!-- Hamburger Toggle BTN -->
+      <button class="am qb" @click="navigationOpen = !navigationOpen">
+        <span class="qb k td xc fc">
+          <span class="du-block j o oc ec">
+            <span class="qb k n l ff lj te zc hc oa ti si mi" :class="{ '_c ni': !navigationOpen }"></span>
+            <span class="qb k n l ff lj te zc hc oa ti si oi" :class="{ '_c bo': !navigationOpen }"></span>
+            <span class="qb k n l ff lj te zc hc oa ti si pi" :class="{ '_c qi': !navigationOpen }"></span>
+          </span>
+          <span class="du-block j o oc ec rd">
+            <span class="qb ff lj te ti si ni j w n ad ec" :class="{ 'ic mi': !navigationOpen }"></span>
+            <span class="qb ff lj te ti si bo j l y oc hc" :class="{ 'ic co': !navigationOpen }"></span>
+          </span>
+        </span>
+      </button>
+      <!-- Hamburger Toggle BTN -->
+    </div>
+
+    <div
+      class="oc fm/4 ic bm h tl _l xd zd"
+      :class="{ 'f cf ij do jc mc le oe mb pf': navigationOpen }"
+    >
+      <nav>
+        <ul class="sb hm vd gm ce km">
+          <li class="nav__menu sm" :class="{ 'tm' : stickyMenu }">
+            <a href="/#home" class="zh mj _i nj" :class="{'bi' :page === 'home'}">Home</a>
+          </li>
+          <li class="nav__menu sm" :class="{ 'tm' : stickyMenu }">
+            <a href="/#about" class="zh mj _i nj">About</a>
+          </li>
+          <li class="nav__menu sm" :class="{ 'tm' : stickyMenu }">
+            <a href="/#team" class="zh mj _i nj">Team</a>
+          </li>
+          <li class="d k sm" :class="{ 'tm' : stickyMenu }" x-data="{ dropdown: false }">
+            <a
+              href="#"
+              class="zh mj _i nj sb xd zd ee"
+              @click.prevent="dropdown = !dropdown"
+              :class="{ 'bi': page === 'about' || page === 'blog-grid' || page === 'blog-single' || page === 'signin' || page === 'signup' || page === '404' }"
+            >
+              Pages
+
+              <svg
+              class="jf bd kc td" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                <path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z" />
+              </svg>
+            </a>
+
+            <!-- Dropdown Start -->
+            <ul class="b" :class="{ 'sb': dropdown }">
+              <li><a href="about.html" class="zh mj _i nj" :class="{ 'bi': page === 'about' }">About</a></li>
+              <li><a href="blog-grid.html" class="zh mj _i nj" :class="{ 'bi': page === 'blog-grid' }">Blog Grid</a></li>
+              <li><a href="blog-single.html" class="zh mj _i nj" :class="{ 'bi': page === 'blog-single' }">Blog Single</a></li>
+              <li><a href="signin.html" class="zh mj _i nj" :class="{ 'bi': page === 'signin' }">Sign In</a></li>
+              <li><a href="signup.html" class="zh mj _i nj" :class="{ 'bi': page === 'signup' }">Sign Up</a></li>
+              <li><a href="404.html" class="zh mj _i nj" :class="{ 'bi': page === '404' }">404</a></li>
+            </ul>
+            <!-- Dropdown End -->
+          </li>
+          <li class="nav__menu sm" :class="{ 'tm' : stickyMenu }">
+            <a href="/#contact" class="zh mj _i nj">Contact</a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="sb xd be nb vl">
+        <div class="ob j ul v _" :class="navigationOpen ? '!-ud-visible' : 'f'">
+          <label class="qb ka k">
+            <input type="checkbox" :value="darkMode" @change="darkMode = !darkMode" class="td oc ec ei j n ga ka" />
+            <!-- Icon Sun -->
+            <svg class="jf fj" width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12.0908 18.6363C10.3549 18.6363 8.69 17.9467 7.46249 16.7192C6.23497 15.4916 5.54537 13.8268 5.54537 12.0908C5.54537 10.3549 6.23497 8.69 7.46249 7.46249C8.69 6.23497 10.3549 5.54537 12.0908 5.54537C13.8268 5.54537 15.4916 6.23497 16.7192 7.46249C17.9467 8.69 18.6363 10.3549 18.6363 12.0908C18.6363 13.8268 17.9467 15.4916 16.7192 16.7192C15.4916 17.9467 13.8268 18.6363 12.0908 18.6363ZM12.0908 16.4545C13.2481 16.4545 14.358 15.9947 15.1764 15.1764C15.9947 14.358 16.4545 13.2481 16.4545 12.0908C16.4545 10.9335 15.9947 9.8236 15.1764 9.00526C14.358 8.18692 13.2481 7.72718 12.0908 7.72718C10.9335 7.72718 9.8236 8.18692 9.00526 9.00526C8.18692 9.8236 7.72718 10.9335 7.72718 12.0908C7.72718 13.2481 8.18692 14.358 9.00526 15.1764C9.8236 15.9947 10.9335 16.4545 12.0908 16.4545ZM10.9999 0.0908203H13.1817V3.36355H10.9999V0.0908203ZM10.9999 20.8181H13.1817V24.0908H10.9999V20.8181ZM2.83446 4.377L4.377 2.83446L6.69082 5.14828L5.14828 6.69082L2.83446 4.37809V4.377ZM17.4908 19.0334L19.0334 17.4908L21.3472 19.8046L19.8046 21.3472L17.4908 19.0334ZM19.8046 2.83337L21.3472 4.377L19.0334 6.69082L17.4908 5.14828L19.8046 2.83446V2.83337ZM5.14828 17.4908L6.69082 19.0334L4.377 21.3472L2.83446 19.8046L5.14828 17.4908ZM24.0908 10.9999V13.1817H20.8181V10.9999H24.0908ZM3.36355 10.9999V13.1817H0.0908203V10.9999H3.36355Z" fill=""/>
+            </svg>
+            <!-- Icon Sun -->
+            <!-- Icon Moon -->
+            <svg class="vb ej" width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g clip-path="url(#clip0_512_11103)">
+              <path d="M8.83697 5.88205C8.8368 7.05058 9.18468 8.19267 9.83625 9.16268C10.4878 10.1327 11.4135 10.8866 12.4953 11.3284C13.5772 11.7701 14.766 11.8796 15.9103 11.6429C17.0546 11.4062 18.1025 10.8341 18.9203 9.99941V10.0834C18.9203 14.7243 15.1584 18.4862 10.5175 18.4862C5.87667 18.4862 2.11475 14.7243 2.11475 10.0834C2.11475 5.44259 5.87667 1.68066 10.5175 1.68066H10.6016C10.042 2.22779 9.59754 2.88139 9.29448 3.60295C8.99143 4.32451 8.83587 5.09943 8.83697 5.88205ZM3.7953 10.0834C3.79469 11.5833 4.29571 13.0403 5.21864 14.2226C6.14157 15.4049 7.4334 16.2446 8.88857 16.608C10.3437 16.9715 11.8787 16.8379 13.2491 16.2284C14.6196 15.6189 15.7469 14.5686 16.4516 13.2446C15.1974 13.54 13.8885 13.5102 12.6492 13.1578C11.4098 12.8054 10.281 12.1422 9.36988 11.2311C8.45877 10.32 7.79557 9.19119 7.44318 7.95181C7.0908 6.71243 7.06093 5.40357 7.3564 4.1494C6.28049 4.72259 5.38073 5.57759 4.75343 6.62288C4.12614 7.66817 3.79495 8.86438 3.7953 10.0834Z" fill="white"/>
+              </g>
+              <defs>
+              <clipPath id="clip0_512_11103">
+              <rect width="20.1667" height="20.1667" fill="white" transform="translate(0.434204)"/>
+              </clipPath>
+              </defs>
+            </svg>
+            <!-- Icon Moon -->
+          </label>
+        </div>
+
+        <a href="signin.html" class="mh ii oe cf yh xi rf gg">Sign In</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+    <!-- ===== Header End ===== -->
+
+    <main>
+      <!-- ===== 404 Start ===== -->
+      <section class="k ca ke sb nc xd yd ng um pn og vm qn">
+          <div class="a">
+            <div class="animate_top la oc dd yg">
+              <span class="zg kh yh kk rh">
+                404
+              </span>
+              <h2 class="pa _g lh zh mj lk">
+                Sorry, the page can't be found
+              </h2>
+              <p class="la qa ed">
+                The page you were looking for appears to have been moved, deleted or
+                does not exist.
+              </p>
+              <a href="#" class="me bf rf sf mh _h xi">
+                Back to homepage
+              </a>
+            </div>
+          </div>
+          <div class="animate_left j l m -ud-z-10">
+            <svg
+                width="406"
+                height="286"
+                viewBox="0 0 406 286"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                >
+                <g opacity="0.5">
+                  <rect
+                      opacity="0.5"
+                      x="56.25"
+                      y="110.344"
+                      width="116.719"
+                      height="116.438"
+                      stroke="url(#paint0_linear_3089_1382)"
+                      />
+                  <rect
+                      opacity="0.1"
+                      x="56.25"
+                      y="110.344"
+                      width="116.719"
+                      height="116.438"
+                      fill="url(#paint1_linear_3089_1382)"
+                      />
+                  <path
+                      opacity="0.5"
+                      d="M172.688 110.344L229.219 51V167.601L172.688 226.781V110.344Z"
+                      stroke="url(#paint2_linear_3089_1382)"
+                      />
+                  <path
+                      opacity="0.1"
+                      d="M172.688 110.344L229.219 51V167.601L172.688 226.781V110.344Z"
+                      fill="url(#paint3_linear_3089_1382)"
+                      />
+                  <path
+                      opacity="0.5"
+                      d="M0 169.619L56.25 110.344V226.85L0 286.125V169.619Z"
+                      stroke="url(#paint4_linear_3089_1382)"
+                      />
+                  <path
+                      opacity="0.1"
+                      d="M0 169.619L56.25 110.344V226.85L0 286.125V169.619Z"
+                      fill="url(#paint5_linear_3089_1382)"
+                      />
+                  <rect
+                      opacity="0.5"
+                      x="228.938"
+                      y="51.2812"
+                      width="119.25"
+                      height="116.438"
+                      stroke="url(#paint6_linear_3089_1382)"
+                      />
+                  <rect
+                      opacity="0.1"
+                      x="228.938"
+                      y="51.2812"
+                      width="119.25"
+                      height="116.438"
+                      fill="url(#paint7_linear_3089_1382)"
+                      />
+                  <path
+                      opacity="0.5"
+                      d="M347.906 51.2812L405 2V110.113L347.906 167.719V51.2812Z"
+                      stroke="url(#paint8_linear_3089_1382)"
+                      />
+                  <path
+                      opacity="0.1"
+                      d="M347.906 51.2812L405 2V110.113L347.906 167.719V51.2812Z"
+                      fill="url(#paint9_linear_3089_1382)"
+                      />
+                </g>
+                <defs>
+                  <linearGradient
+                      id="paint0_linear_3089_1382"
+                      x1="49.0781"
+                      y1="112.313"
+                      x2="148.922"
+                      y2="131.859"
+                      gradientUnits="userSpaceOnUse"
+                      >
+                      <stop stop-color="#4A6CF7" stop-opacity="0" />
+                      <stop offset="1" stop-color="#4A6CF7" />
+                  </linearGradient>
+                  <linearGradient
+                      id="paint1_linear_3089_1382"
+                      x1="179.141"
+                      y1="209.062"
+                      x2="32.6026"
+                      y2="145.47"
+                      gradientUnits="userSpaceOnUse"
+                      >
+                      <stop stop-color="#4A6CF7" />
+                      <stop offset="1" stop-color="#4A6CF7" stop-opacity="0" />
+                  </linearGradient>
+                  <linearGradient
+                      id="paint2_linear_3089_1382"
+                      x1="170.016"
+                      y1="125.25"
+                      x2="217.542"
+                      y2="125.507"
+                      gradientUnits="userSpaceOnUse"
+                      >
+                      <stop stop-color="#4A6CF7" stop-opacity="0" />
+                      <stop offset="1" stop-color="#4A6CF7" />
+                  </linearGradient>
+                  <linearGradient
+                      id="paint3_linear_3089_1382"
+                      x1="233.578"
+                      y1="113.156"
+                      x2="146.509"
+                      y2="143.95"
+                      gradientUnits="userSpaceOnUse"
+                      >
+                      <stop stop-color="#4A6CF7" />
+                      <stop offset="1" stop-color="#4A6CF7" stop-opacity="0" />
+                  </linearGradient>
+                  <linearGradient
+                      id="paint4_linear_3089_1382"
+                      x1="-3.45633"
+                      y1="113.316"
+                      x2="46.311"
+                      y2="116.426"
+                      gradientUnits="userSpaceOnUse"
+                      >
+                      <stop stop-color="#4A6CF7" stop-opacity="0" />
+                      <stop offset="1" stop-color="#4A6CF7" />
+                  </linearGradient>
+                  <linearGradient
+                      id="paint5_linear_3089_1382"
+                      x1="69.8907"
+                      y1="189.234"
+                      x2="84.0124"
+                      y2="249.947"
+                      gradientUnits="userSpaceOnUse"
+                      >
+                      <stop stop-color="#4A6CF7" />
+                      <stop offset="1" stop-color="#4A6CF7" stop-opacity="0" />
+                  </linearGradient>
+                  <linearGradient
+                      id="paint6_linear_3089_1382"
+                      x1="218.953"
+                      y1="157.453"
+                      x2="330.261"
+                      y2="148.369"
+                      gradientUnits="userSpaceOnUse"
+                      >
+                      <stop stop-color="#4A6CF7" stop-opacity="0" />
+                      <stop offset="1" stop-color="#4A6CF7" />
+                  </linearGradient>
+                  <linearGradient
+                      id="paint7_linear_3089_1382"
+                      x1="348.187"
+                      y1="46.6406"
+                      x2="280.112"
+                      y2="168.552"
+                      gradientUnits="userSpaceOnUse"
+                      >
+                      <stop stop-color="#4A6CF7" />
+                      <stop offset="1" stop-color="#4A6CF7" stop-opacity="0" />
+                  </linearGradient>
+                  <linearGradient
+                      id="paint8_linear_3089_1382"
+                      x1="329"
+                      y1="190"
+                      x2="369.525"
+                      y2="-29.8829"
+                      gradientUnits="userSpaceOnUse"
+                      >
+                      <stop stop-color="#4A6CF7" stop-opacity="0" />
+                      <stop offset="1" stop-color="#4A6CF7" />
+                  </linearGradient>
+                  <linearGradient
+                      id="paint9_linear_3089_1382"
+                      x1="409"
+                      y1="10"
+                      x2="331.729"
+                      y2="34.2741"
+                      gradientUnits="userSpaceOnUse"
+                      >
+                      <stop stop-color="#4A6CF7" />
+                      <stop offset="1" stop-color="#4A6CF7" stop-opacity="0" />
+                  </linearGradient>
+                </defs>
+            </svg>
+          </div>
+          <div class="animate_right j n o -ud-z-10">
+            <svg
+                width="406"
+                height="286"
+                viewBox="0 0 406 286"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                >
+                <g opacity="0.5">
+                  <rect
+                      opacity="0.5"
+                      x="57.25"
+                      y="108.344"
+                      width="116.719"
+                      height="116.438"
+                      stroke="url(#paint0_linear_3089_1393)"
+                      />
+                  <rect
+                      opacity="0.1"
+                      x="57.25"
+                      y="108.344"
+                      width="116.719"
+                      height="116.438"
+                      fill="url(#paint1_linear_3089_1393)"
+                      />
+                  <path
+                      opacity="0.5"
+                      d="M173.688 108.344L230.219 49V165.601L173.688 224.781V108.344Z"
+                      stroke="url(#paint2_linear_3089_1393)"
+                      />
+                  <path
+                      opacity="0.1"
+                      d="M173.688 108.344L230.219 49V165.601L173.688 224.781V108.344Z"
+                      fill="url(#paint3_linear_3089_1393)"
+                      />
+                  <path
+                      opacity="0.5"
+                      d="M1 167.619L57.25 108.344V224.85L1 284.125V167.619Z"
+                      stroke="url(#paint4_linear_3089_1393)"
+                      />
+                  <path
+                      opacity="0.1"
+                      d="M1 167.619L57.25 108.344V224.85L1 284.125V167.619Z"
+                      fill="url(#paint5_linear_3089_1393)"
+                      />
+                  <rect
+                      opacity="0.5"
+                      x="229.938"
+                      y="49.2812"
+                      width="119.25"
+                      height="116.438"
+                      stroke="url(#paint6_linear_3089_1393)"
+                      />
+                  <rect
+                      opacity="0.1"
+                      x="229.938"
+                      y="49.2812"
+                      width="119.25"
+                      height="116.438"
+                      fill="url(#paint7_linear_3089_1393)"
+                      />
+                  <path
+                      opacity="0.5"
+                      d="M348.906 49.2812L406 0V108.113L348.906 165.719V49.2812Z"
+                      stroke="url(#paint8_linear_3089_1393)"
+                      />
+                  <path
+                      opacity="0.1"
+                      d="M348.906 49.2812L406 0V108.113L348.906 165.719V49.2812Z"
+                      fill="url(#paint9_linear_3089_1393)"
+                      />
+                </g>
+                <defs>
+                  <linearGradient
+                      id="paint0_linear_3089_1393"
+                      x1="50.0781"
+                      y1="110.313"
+                      x2="149.922"
+                      y2="129.859"
+                      gradientUnits="userSpaceOnUse"
+                      >
+                      <stop stop-color="#3056D3" stop-opacity="0" />
+                      <stop offset="1" stop-color="#4A6CF7" />
+                  </linearGradient>
+                  <linearGradient
+                      id="paint1_linear_3089_1393"
+                      x1="180.141"
+                      y1="207.062"
+                      x2="33.6026"
+                      y2="143.47"
+                      gradientUnits="userSpaceOnUse"
+                      >
+                      <stop stop-color="#3056D3" />
+                      <stop offset="1" stop-color="#4A6CF7" stop-opacity="0" />
+                  </linearGradient>
+                  <linearGradient
+                      id="paint2_linear_3089_1393"
+                      x1="171.016"
+                      y1="123.25"
+                      x2="218.542"
+                      y2="123.507"
+                      gradientUnits="userSpaceOnUse"
+                      >
+                      <stop stop-color="#3056D3" stop-opacity="0" />
+                      <stop offset="1" stop-color="#4A6CF7" />
+                  </linearGradient>
+                  <linearGradient
+                      id="paint3_linear_3089_1393"
+                      x1="234.578"
+                      y1="111.156"
+                      x2="147.509"
+                      y2="141.95"
+                      gradientUnits="userSpaceOnUse"
+                      >
+                      <stop stop-color="#3056D3" />
+                      <stop offset="1" stop-color="#4A6CF7" stop-opacity="0" />
+                  </linearGradient>
+                  <linearGradient
+                      id="paint4_linear_3089_1393"
+                      x1="85.5"
+                      y1="71.5"
+                      x2="100.174"
+                      y2="270.716"
+                      gradientUnits="userSpaceOnUse"
+                      >
+                      <stop stop-color="#3056D3" stop-opacity="0" />
+                      <stop offset="1" stop-color="#3056D3" />
+                  </linearGradient>
+                  <linearGradient
+                      id="paint5_linear_3089_1393"
+                      x1="70.8907"
+                      y1="187.234"
+                      x2="85.0124"
+                      y2="247.947"
+                      gradientUnits="userSpaceOnUse"
+                      >
+                      <stop stop-color="#3056D3" />
+                      <stop offset="1" stop-color="#4A6CF7" stop-opacity="0" />
+                  </linearGradient>
+                  <linearGradient
+                      id="paint6_linear_3089_1393"
+                      x1="219.953"
+                      y1="155.453"
+                      x2="331.261"
+                      y2="146.369"
+                      gradientUnits="userSpaceOnUse"
+                      >
+                      <stop stop-color="#3056D3" stop-opacity="0" />
+                      <stop offset="1" stop-color="#4A6CF7" />
+                  </linearGradient>
+                  <linearGradient
+                      id="paint7_linear_3089_1393"
+                      x1="349.187"
+                      y1="44.6406"
+                      x2="281.112"
+                      y2="166.552"
+                      gradientUnits="userSpaceOnUse"
+                      >
+                      <stop stop-color="#3056D3" />
+                      <stop offset="1" stop-color="#4A6CF7" stop-opacity="0" />
+                  </linearGradient>
+                  <linearGradient
+                      id="paint8_linear_3089_1393"
+                      x1="394.75"
+                      y1="64.3284"
+                      x2="409.531"
+                      y2="110.901"
+                      gradientUnits="userSpaceOnUse"
+                      >
+                      <stop stop-color="#3056D3" stop-opacity="0" />
+                      <stop offset="1" stop-color="#4A6CF7" />
+                  </linearGradient>
+                  <linearGradient
+                      id="paint9_linear_3089_1393"
+                      x1="410"
+                      y1="8.00001"
+                      x2="332.729"
+                      y2="32.2741"
+                      gradientUnits="userSpaceOnUse"
+                      >
+                      <stop stop-color="#3056D3" />
+                      <stop offset="1" stop-color="#4A6CF7" stop-opacity="0" />
+                  </linearGradient>
+                </defs>
+            </svg>
+          </div>
+      </section>
+      <!-- ===== 404 End ===== -->
+    </main>
+    <!-- ===== Footer Start ===== -->
+    <!-- ====== Footer Section Start -->
+<footer class="k ca ef ij tg wm sn wg ym un">
+  <div class="a">
+    <div class="-ud-mx-4 sb wd">
+      <div class="animate_top oc tf bk/3 fm/12">
+        <div class="cb oc">
+          <a class="lb rb pd" href="index.html">
+            <img class="qd fj" src="images/logo-light.png" style="width: 12px;" alt="Logo Light" />
+            <img class="qd vb ej" src="images/logo-dark.png" style="width: 12px;" alt="Logo Dark" />
+          </a>
+
+          <p class="kb in/5">
+            Lorem ipsum dolor amet consectetur adipiscing elit do eiusmod tempor
+            incididunt ut labore et dolore.
+          </p>
+          <div class="-ud-mx-3 sb xd">
+            <a href="#" class="_i ag ai">
+              <svg
+                width="10"
+                height="18"
+                viewBox="0 0 10 18"
+                class="jf"
+              >
+                <path
+                  d="M9.00007 6.82105H7.50006H6.96434V6.27097V4.56571V4.01562H7.50006H8.62507C8.91971 4.01562 9.16078 3.79559 9.16078 3.46554V0.550085C9.16078 0.247538 8.9465 0 8.62507 0H6.66969C4.55361 0 3.08038 1.54024 3.08038 3.82309V6.21596V6.76605H2.54466H0.72322C0.348217 6.76605 0 7.06859 0 7.50866V9.48897C0 9.87402 0.294645 10.2316 0.72322 10.2316H2.49109H3.02681V10.7817V16.31C3.02681 16.6951 3.32145 17.0526 3.75003 17.0526H6.26791C6.42862 17.0526 6.56255 16.9701 6.66969 16.8601C6.77684 16.7501 6.8572 16.5576 6.8572 16.3925V10.8092V10.2591H7.4197H8.62507C8.97328 10.2591 9.24114 10.0391 9.29471 9.709V9.6815V9.65399L9.66972 7.7562C9.6965 7.56367 9.66972 7.34363 9.509 7.1236C9.45543 6.98608 9.21436 6.84856 9.00007 6.82105Z"
+                />
+              </svg>
+            </a>
+            <a href="#" class="_i ag ai">
+              <svg
+                width="19"
+                height="15"
+                viewBox="0 0 19 15"
+                class="jf"
+              >
+                <path
+                  d="M16.2622 3.17878L17.33 1.93293C17.6391 1.59551 17.7234 1.33595 17.7515 1.20618C16.9085 1.67337 16.1217 1.82911 15.6159 1.82911H15.4192L15.3068 1.72528C14.6324 1.18022 13.7894 0.894714 12.8902 0.894714C10.9233 0.894714 9.37779 2.40012 9.37779 4.13913C9.37779 4.24295 9.37779 4.39868 9.40589 4.5025L9.49019 5.02161L8.90009 4.99565C5.30334 4.89183 2.35288 2.03675 1.87518 1.5436C1.08839 2.84136 1.53799 4.08722 2.01568 4.86587L2.97107 6.31937L1.45369 5.54071C1.48179 6.63084 1.93138 7.48736 2.80247 8.11029L3.56116 8.62939L2.80247 8.9149C3.28017 10.2386 4.34795 10.7837 5.13474 10.9913L6.17443 11.2509L5.19094 11.8738C3.61736 12.912 1.65039 12.8342 0.779297 12.7563C2.54957 13.8983 4.65705 14.1579 6.11823 14.1579C7.21412 14.1579 8.02901 14.0541 8.2257 13.9762C16.0936 12.2631 16.4589 5.77431 16.4589 4.47655V4.29486L16.6275 4.19104C17.5829 3.36047 17.9763 2.91923 18.2011 2.65967C18.1168 2.68563 18.0044 2.73754 17.892 2.7635L16.2622 3.17878Z"
+                />
+              </svg>
+            </a>
+            <a href="#" class="_i ag ai">
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 18 18"
+                class="jf"
+              >
+                <path
+                  d="M8.91688 12.4995C10.6918 12.4995 12.1306 11.0911 12.1306 9.35385C12.1306 7.61655 10.6918 6.20819 8.91688 6.20819C7.14197 6.20819 5.70312 7.61655 5.70312 9.35385C5.70312 11.0911 7.14197 12.4995 8.91688 12.4995Z"
+                />
+                <path
+                  d="M12.4078 0.947388H5.37075C2.57257 0.947388 0.300781 3.17104 0.300781 5.90993V12.7436C0.300781 15.5367 2.57257 17.7604 5.37075 17.7604H12.3524C15.2059 17.7604 17.4777 15.5367 17.4777 12.7978V5.90993C17.4777 3.17104 15.2059 0.947388 12.4078 0.947388ZM8.91696 13.4758C6.56206 13.4758 4.70584 11.6047 4.70584 9.35389C4.70584 7.10312 6.58976 5.23199 8.91696 5.23199C11.2165 5.23199 13.1004 7.10312 13.1004 9.35389C13.1004 11.6047 11.2442 13.4758 8.91696 13.4758ZM14.735 5.61164C14.4579 5.90993 14.0423 6.07264 13.5714 6.07264C13.1558 6.07264 12.7402 5.90993 12.4078 5.61164C12.103 5.31334 11.9368 4.9337 11.9368 4.47269C11.9368 4.01169 12.103 3.65916 12.4078 3.33375C12.7125 3.00834 13.1004 2.84563 13.5714 2.84563C13.9869 2.84563 14.4302 3.00834 14.735 3.30663C15.012 3.65916 15.2059 4.06593 15.2059 4.49981C15.1782 4.9337 15.012 5.31334 14.735 5.61164Z"
+                />
+                <path
+                  d="M13.5985 3.82184C13.2383 3.82184 12.9336 4.12013 12.9336 4.47266C12.9336 4.82519 13.2383 5.12349 13.5985 5.12349C13.9587 5.12349 14.2634 4.82519 14.2634 4.47266C14.2634 4.12013 13.9864 3.82184 13.5985 3.82184Z"
+                />
+              </svg>
+            </a>
+            <a href="#" class="_i ag ai">
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 18 18"
+                class="jf"
+              >
+                <path
+                  d="M16.7821 0.947388H1.84847C1.14272 0.947388 0.578125 1.49747 0.578125 2.18508V16.7623C0.578125 17.4224 1.14272 18 1.84847 18H16.7257C17.4314 18 17.996 17.4499 17.996 16.7623V2.15757C18.0525 1.49747 17.4879 0.947388 16.7821 0.947388ZM5.7442 15.4421H3.17528V7.32837H5.7442V15.4421ZM4.44563 6.2007C3.59873 6.2007 2.94944 5.5406 2.94944 4.74297C2.94944 3.94535 3.62696 3.28525 4.44563 3.28525C5.26429 3.28525 5.94181 3.94535 5.94181 4.74297C5.94181 5.5406 5.32075 6.2007 4.44563 6.2007ZM15.4835 15.4421H12.9146V11.509C12.9146 10.5739 12.8864 9.33618 11.5596 9.33618C10.2045 9.33618 10.0069 10.3813 10.0069 11.4265V15.4421H7.438V7.32837H9.95046V8.45605H9.9787C10.3457 7.79594 11.1644 7.13584 12.4347 7.13584C15.0601 7.13584 15.54 8.7861 15.54 11.0414V15.4421H15.4835Z"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="animate_top oc tf ak/2 fm/12">
+        <div class="cb oc">
+          <h4 class="zh mj wa ah nh">Company</h4>
+          <ul>
+            <li>
+              <a href="#" class="_i ta rb jh th">
+                About company
+              </a>
+            </li>
+            <li>
+              <a href="#" class="_i ta rb jh th">
+                Company services
+              </a>
+            </li>
+            <li>
+              <a href="#" class="_i ta rb jh th">
+                Job opportunities
+              </a>
+            </li>
+            <li>
+              <a href="#" class="_i ta rb jh th">
+                Creative people
+              </a>
+            </li>
+            <li>
+              <a href="#" class="_i ta rb jh th">
+                Contact us
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="animate_top oc tf ak/2 fm/12">
+        <div class="cb oc">
+          <h4 class="zh mj wa ah nh">Customer</h4>
+          <ul>
+            <li>
+              <a href="#" class="_i ta rb jh th">
+                Client support
+              </a>
+            </li>
+            <li>
+              <a href="#" class="_i ta rb jh th">
+                Latest news
+              </a>
+            </li>
+            <li>
+              <a href="#" class="_i ta rb jh th">
+                Company story
+              </a>
+            </li>
+            <li>
+              <a href="#" class="_i ta rb jh th">
+                Pricing packages
+              </a>
+            </li>
+            <li>
+              <a href="#" class="_i ta rb jh th">
+                Who we are
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="animate_top oc tf ak/2 fm/12">
+        <div class="cb oc">
+          <h4 class="zh mj wa ah nh">
+            Subscribe To Newsletter
+          </h4>
+          <p class="xa">
+            Enter your email address for receiving valuable newsletters.
+          </p>
+          <form class="k xa oc ke me">
+            <input
+              type="email"
+              placeholder="Your Email"
+              class="cj dc oc me ve ye gj cf hj zf fh ki dj"
+            />
+            <button
+              type="submit"
+              class="bf wi j o n sb ec wc xd yd _h"
+            >
+              <svg
+                width="18"
+                height="13"
+                viewBox="0 0 18 13"
+                class="jf"
+              >
+                <path
+                  d="M16.3052 0H1.69481C0.75974 0 0 0.799055 0 1.78251V11.2175C0 12.2009 0.75974 13 1.69481 13H16.3052C17.2403 13 18 12.2009 18 11.2175V1.78251C18 0.799055 17.2403 0 16.3052 0ZM16.3052 1.07565C16.4513 1.07565 16.5682 1.10638 16.6851 1.19858L9.40909 5.83924C9.1461 5.99291 8.8539 5.99291 8.59091 5.83924L1.31494 1.19858C1.43182 1.13712 1.5487 1.07565 1.69481 1.07565H16.3052ZM16.3052 11.8936H1.69481C1.34416 11.8936 1.02273 11.5863 1.02273 11.1868V2.27423L8.03572 6.76123C8.32792 6.94563 8.64935 7.03782 8.97078 7.03782C9.29221 7.03782 9.61364 6.94563 9.90584 6.76123L16.9188 2.27423V11.1868C16.9773 11.5863 16.6558 11.8936 16.3052 11.8936Z"
+                />
+              </svg>
+            </button>
+          </form>
+          <p>&copy; 2025 Appmint</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- ====== Footer Section End -->
+    <!-- ===== Footer End ===== -->
+
+    <!-- ====== Back To Top Start ===== -->
+    <button
+  class="vb xd yd qc yb ue do bf eo i aa ba ia"
+  @click="window.scrollTo({top: 0, behavior: 'smooth'})"
+  @scroll.window="scrollTop = (window.pageYOffset > 50) ? true : false"
+  :class="{ 'tb' : scrollTop }"
+>
+  <svg class="kf yc gc" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+    <path d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z" />
+  </svg>
+</button>
+
+    <!-- ====== Back To Top End ===== -->
+  <script defer src="bundle.js"></script></body>
+</html>

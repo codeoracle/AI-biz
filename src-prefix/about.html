@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us | Appmint - Tailwind CSS Business Site Template</title>
+  </head>
+  <body
+    x-data="{ page: 'about', 'loaded': true, 'darkMode': true, 'stickyMenu': false, 'navigationOpen': false, 'scrollTop': false }"
+    x-init="
+         darkMode = JSON.parse(localStorage.getItem('darkMode'));
+         $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)))"
+    :class="{'ud-dark ud-bg-black-2': darkMode === true}"
+  >
+    <!-- ===== Preloader Start ===== -->
+    <include src="./partials/preloader.html"></include>
+    <!-- ===== Preloader End ===== -->
+
+    <!-- ===== Header Start ===== -->
+    <include src="./partials/header.html" />
+    <!-- ===== Header End ===== -->
+
+    <main>
+      <!-- ===== About Section Start ===== -->
+      <section class="ud-overflow-hidden ud-pt-40 lg:ud-pt-45 xl:ud-pt-50 ud-pb-20 lg:ud-pb-25 xl:ud-pb-30">
+        <div class="ud-container">
+          <div class="-ud-mx-4 ud-flex ud-gap-y-8 ud-flex-wrap ud-items-center ud-justify-between">
+            <div class="animate_left ud-w-full ud-px-4 lg:ud-w-6/12">
+              <div class="ud-relative ud-mx-auto ud-flex ud-h-125 ud-max-w-110">
+                <div class="ud-absolute ud-left-0 ud-z-30 ud-mr-14 ud-max-w-67.5 ud-rounded-lg">
+                  <img
+                    src="./images/about/about-01.jpg"
+                    alt="about image"
+                    class="ud-w-full ud-rounded-lg"
+                  />
+                  <span class="ud-absolute ud-top-6 -ud-right-14 -ud-z-10">
+                    <svg
+                      width="61"
+                      height="47"
+                      viewBox="0 0 61 47"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <circle
+                        cx="15.6667"
+                        cy="30.9998"
+                        r="1.66667"
+                        transform="rotate(-90 15.6667 30.9998)"
+                        fill="#3056D3"
+                      />
+                      <circle
+                        cx="44.6667"
+                        cy="30.9998"
+                        r="1.66667"
+                        transform="rotate(-90 44.6667 30.9998)"
+                        fill="#3056D3"
+                      />
+                      <circle
+                        cx="1.66667"
+                        cy="30.9998"
+                        r="1.66667"
+                        transform="rotate(-90 1.66667 30.9998)"
+                        fill="#3056D3"
+                      />
+                      <circle
+                        cx="29.9999"
+                        cy="30.9998"
+                        r="1.66667"
+                        transform="rotate(-90 29.9999 30.9998)"
+                        fill="#3056D3"
+                      />
+                      <circle
+                        cx="58.9999"
+                        cy="30.9998"
+                        r="1.66667"
+                        transform="rotate(-90 58.9999 30.9998)"
+                        fill="#3056D3"
+                      />
+                      <circle
+                        cx="15.6667"
+                        cy="16.3333"
+                        r="1.66667"
+                        transform="rotate(-90 15.6667 16.3333)"
+                        fill="#3056D3"
+                      />
+                      <circle
+                        cx="44.6667"
+                        cy="16.3333"
+                        r="1.66667"
+                        transform="rotate(-90 44.6667 16.3333)"
+                        fill="#3056D3"
+                      />
+                      <circle
+                        cx="1.66667"
+                        cy="16.3333"
+                        r="1.66667"
+                        transform="rotate(-90 1.66667 16.3333)"
+                        fill="#3056D3"
+                      />
+                      <circle
+                        cx="29.9999"
+                        cy="16.3333"
+                        r="1.66667"
+                        transform="rotate(-90 29.9999 16.3333)"
+                        fill="#3056D3"
+                      />
+                      <circle
+                        cx="58.9999"
+                        cy="16.3333"
+                        r="1.66667"
+                        transform="rotate(-90 58.9999 16.3333)"
+                        fill="#3056D3"
+                      />
+                      <circle
+                        cx="15.6667"
+                        cy="45.3336"
+                        r="1.66667"
+                        transform="rotate(-90 15.6667 45.3336)"
+                        fill="#3056D3"
+                      />
+                      <circle
+                        cx="15.6667"
+                        cy="1.66683"
+                        r="1.66667"
+                        transform="rotate(-90 15.6667 1.66683)"
+                        fill="#3056D3"
+                      />
+                      <circle
+                        cx="44.6667"
+                        cy="45.3336"
+                        r="1.66667"
+                        transform="rotate(-90 44.6667 45.3336)"
+                        fill="#3056D3"
+                      />
+                      <circle
+                        cx="44.6667"
+                        cy="1.66683"
+                        r="1.66667"
+                        transform="rotate(-90 44.6667 1.66683)"
+                        fill="#3056D3"
+                      />
+                      <circle
+                        cx="1.66667"
+                        cy="45.3336"
+                        r="1.66667"
+                        transform="rotate(-90 1.66667 45.3336)"
+                        fill="#3056D3"
+                      />
+                      <circle
+                        cx="1.66667"
+                        cy="1.66683"
+                        r="1.66667"
+                        transform="rotate(-90 1.66667 1.66683)"
+                        fill="#3056D3"
+                      />
+                      <circle
+                        cx="29.9999"
+                        cy="45.3336"
+                        r="1.66667"
+                        transform="rotate(-90 29.9999 45.3336)"
+                        fill="#3056D3"
+                      />
+                      <circle
+                        cx="29.9999"
+                        cy="1.66683"
+                        r="1.66667"
+                        transform="rotate(-90 29.9999 1.66683)"
+                        fill="#3056D3"
+                      />
+                      <circle
+                        cx="58.9999"
+                        cy="45.3336"
+                        r="1.66667"
+                        transform="rotate(-90 58.9999 45.3336)"
+                        fill="#3056D3"
+                      />
+                      <circle
+                        cx="58.9999"
+                        cy="1.66683"
+                        r="1.66667"
+                        transform="rotate(-90 58.9999 1.66683)"
+                        fill="#3056D3"
+                      />
+                    </svg>
+                  </span>
+                  <span class="ud-absolute ud-left-5 -ud-bottom-10 -ud-z-1 sm:ud-left-16">
+                    <svg
+                      width="112"
+                      height="112"
+                      viewBox="0 0 112 112"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M56 96C78.0914 96 96 78.0914 96 56C96 33.9086 78.0914 16 56 16C33.9086 16 16 33.9086 16 56C16 78.0914 33.9086 96 56 96ZM56 112C86.9279 112 112 86.9279 112 56C112 25.0721 86.9279 0 56 0C25.0721 0 0 25.0721 0 56C0 86.9279 25.0721 112 56 112Z"
+                        fill="#13C296"
+                      />
+                    </svg>
+                  </span>
+                </div>
+                <div class="ud-absolute ud-right-0 ud-top-20 ud-z-30 ud-ml-14 ud-max-w-75 ud-rounded-lg">
+                  <img
+                    src="./images/about/about-02.jpg"
+                    alt="about image"
+                    class="ud-w-full ud-rounded-lg"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="animate_right ud-w-full ud-px-4 lg:ud-w-1/2 2xl:ud-w-5/12">
+              <div class="sm:ud-mt-10 lg:ud-mt-0">
+                <span class="ud-text-primary ud-mb-2 ud-block ud-text-lg ud-font-semibold">
+                  WHAT WE ACHIEVED
+                </span>
+                <h2 class="ud-mb-11 ud-text-3xl ud-font-bold ud-leading-tight ud-text-black dark:ud-text-white sm:ud-text-4xl sm:ud-leading-tight md:ud-text-title-lg lg:ud-text-4xl lg:ud-leading-tight xl:ud-text-title-lg">
+                  We grow your business with full potential by the innovation.
+                </h2>
+                <h3 class="ud-mb-4 ud-text-lg ud-font-bold ud-text-black dark:ud-text-white">Company Benefits</h3>
+                <p class="ud-mb-9">
+                  Proin gravida nibh vel velit auctor aliquet. aks Aenean
+                  sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum,
+                  nec sagittis sem, tidiomic consequat ipsum.
+                </p>
+                <h3 class="ud-mb-4 ud-text-lg ud-font-bold ud-text-black dark:ud-text-white">Competitive Salary</h3>
+                <p>
+                  Proin gravida nibh vel velit auctor aliquet. aks Aenean
+                  sollicitudin, lorem quis bibendum auctor.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- ===== About Section End ===== -->
+    </main>
+    <!-- ===== Footer Start ===== -->
+    <include src="./partials/footer.html" />
+    <!-- ===== Footer End ===== -->
+
+    <!-- ====== Back To Top Start ===== -->
+    <include src="./partials/scrolltop.html" />
+    <!-- ====== Back To Top End ===== -->
+  </body>
+</html>
